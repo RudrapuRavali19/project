@@ -24,3 +24,29 @@ set
     gross_salary = salary + (salary*0.20) + (salary*0.10);
 
 select * from employees;
+alter table employees
+add column pf decimal(10,2) after gross_salary,
+add column tax decimal(10,2)after pf,
+add column net_salary decimal(10,2)after tax;
+select * from employees;
+update employees
+set
+pf=salary*0.12,
+tax=salary*0.5,
+net_salary=gross_salary - (salary*0.12)-(salary*0.05);
+select * from employees;
+update employees
+set
+hra=salary*0.20,
+da=salary*0.10,
+gross_salary=salary+(salary*0.20)+(salary*0.10);
+select * from employees;
+update employees
+set
+net_salary=gross_salary-pf-tax;
+
+
+
+
+
+
