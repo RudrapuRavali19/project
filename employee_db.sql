@@ -1,14 +1,6 @@
-  
-
 CREATE DATABASE IF NOT EXISTS employee_db;
-
 USE employee_db;
-
 DROP TABLE IF EXISTS employees;
-
-
-
-
 CREATE TABLE employees
 (
     employee_id INT PRIMARY KEY,
@@ -139,9 +131,6 @@ SELECT
 FROM employees;
 
 
-/* ============================================================
-   EMPLOYEE NAME VALIDATION
-   ============================================================ */
 
 SELECT
     employee_id,
