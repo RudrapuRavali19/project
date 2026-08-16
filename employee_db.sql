@@ -100,51 +100,28 @@ from employees
 group by salary_grade
 order by salary_grade;
 select*from employees; 
-select 
-employee_id,
-name,
-salary,
-case
-when salary >=50000 then '15%'
-when salary>=30000 then '10%'
-else'5%'
-end as bouns_percent,
-case
-when salary >=50000 then salary*0.15
-when salary >=30000 then salary*0.10
-else salary*0.05
-end as bounds_amount
-from employees;
-delimiter  //
-create procedure add_employees()
-begin 
-declare i int default 1;
-declare n int default 3;
-while i<=n do
-insert into employees(name, salary)
-values(concat('emp',i),30000+i*5000);
-set i=i+1;
-end while;
-end//
-delimiter ;
-call add_employees();
+CREATE TABLE Employee (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    department VARCHAR(50),
+    salary DECIMAL(10,2)
+);
+
+INSERT INTO Employee (id, name, department, salary) 
+VALUES 
+(101, 'Rahul Sharma', 'Data Analytics', 60000.00),
+(102, 'Priya Singh', 'HR', 45000.00),
+(103, 'Amit Verma', 'Finance', 55000.00);
+SELECT * FROM Employee;
+
+SELECT * FROM Employee WHERE id = 101;
 
 
+SELECT name, salary FROM Employee;
 
 
+SELECT * FROM Employee WHERE department = 'Data Analytics';
 
+UPDATE Employee SET salary = 65000 WHERE id = 101;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   
